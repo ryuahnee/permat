@@ -38,8 +38,8 @@ public class Member {
         private String role;         //VARCHAR(50)     NULL        COMMENT '권한',
         @Column
         private LocalDateTime joinDate;       //DATETIME        NOT NULL    COMMENT 가입일,
-        @Column
-        private String snssnsJoin;     //VARCHAR(50)     NOT NULL    COMMENT sns가입여부,
+        @Column(name = "sns_join")
+        private String snsJoin;     //VARCHAR(50)     NOT NULL    COMMENT sns가입여부,
         @Column
         private Boolean snsConsent;     //CHAR(1)         NOT NULL    COMMENT 마케팅동의,
 
@@ -57,7 +57,7 @@ public class Member {
                         .level(this.level)
                         .role(this.role)
                         .joinDate(this.joinDate)
-                        .snssnsJoin(this.snssnsJoin)
+                        .snsJoin(this.snsJoin)
                         .snsConsent(this.snsConsent)
                         .build();
         }

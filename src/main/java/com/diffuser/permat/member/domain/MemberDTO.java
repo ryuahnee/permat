@@ -23,11 +23,11 @@ public class MemberDTO {
         private String level;            //VARCHAR(50)     NULL        COMMENT '회원등급',
         private String role;         //VARCHAR(50)     NULL        COMMENT '권한',
         private LocalDateTime joinDate;       //DATETIME        NOT NULL    COMMENT 가입일,
-        private String snssnsJoin;     //VARCHAR(50)     NOT NULL    COMMENT sns가입여부,
+        private String snsJoin;     //VARCHAR(50)     NOT NULL    COMMENT sns가입여부,
         private Boolean snsConsent;     //CHAR(1)         NOT NULL    COMMENT 마케팅동의,
 
         @Builder
-        public MemberDTO(Integer memberNo, String memberId, String pwd, String email, String memberName, String phone, String address, Character gender, Date birth, String level, String role, LocalDateTime joinDate, String snssnsJoin, Boolean snsConsent) {
+        public MemberDTO(Integer memberNo, String memberId, String pwd, String email, String memberName, String phone, String address, Character gender, Date birth, String level, String role, LocalDateTime joinDate, String snsJoin, Boolean snsConsent) {
                 this.memberNo = memberNo;
                 this.memberId = memberId;
                 this.pwd = pwd;
@@ -40,10 +40,12 @@ public class MemberDTO {
                 this.level = level;
                 this.role = role;
                 this.joinDate = joinDate;
-                this.snssnsJoin = snssnsJoin;
+                this.snsJoin = snsJoin;
                 this.snsConsent = snsConsent;
         }
 
+        public MemberDTO() {
+        }
 
         // MemberDTO에서 Member 엔터티로 수동 변환하는 메서드
         public Member toEntity() {
@@ -59,7 +61,7 @@ public class MemberDTO {
                 member.setLevel(this.level);
                 member.setRole(this.role);
                 member.setJoinDate(this.joinDate);
-                member.setSnssnsJoin(this.snssnsJoin);
+                member.setSnsJoin(this.snsJoin);
                 member.setSnsConsent(this.snsConsent);
                 return member;
         }
